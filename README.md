@@ -3,8 +3,6 @@
 
 Shopify Code Challenge
 
-## Available Scripts
-
 To view the site, run:
 
 ### `npm start`
