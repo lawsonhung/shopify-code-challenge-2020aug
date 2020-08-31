@@ -1,23 +1,15 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import SearchBar from './SearchBar';
 
 class App extends Component {
-
-  handleChange = (e) => {
-    this.props.storeUsername(e.target.value);
-  }
 
   render() {
     return (
       <div>
         <h1>The Shoppies</h1>
-        <h2>Hey, {this.props.username}!</h2>
-        <label htmlFor='username'>Username: </label>
-        <input 
-          type='text' 
-          id='username' 
-          onChange={(e) => this.handleChange(e)}
-          value={this.props.username} />
+        <h2>Hey, {this.props.title}!</h2>
+          <SearchBar />
       </div>
     )
   }
@@ -25,16 +17,16 @@ class App extends Component {
 
 const mapStateToProps = (store) => {
   return {
-    username: store.username
+    title: store.title
   }
 }
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    storeUsername: (username) => {
+    storetitle: (title) => {
       dispatch({
-        type: 'STORE_USERNAME',
-        username: username
+        type: 'STORE_TITLE',
+        title: title
       })
     }
   }

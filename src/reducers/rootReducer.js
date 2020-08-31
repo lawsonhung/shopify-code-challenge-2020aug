@@ -1,15 +1,15 @@
 export default (state={
-  username: ''
+  title: ''
 }, action) => {
   switch(action.type) {
-    case 'STORE_USERNAME':
+    case 'STORE_TITLE':
       return {
-        username: action.username
+        title: action.title
       }
 
-    case 'CLEAR_USERNAME':
+    case 'CLEAR_TITLE':
       return {
-        username: ''
+        title: ''
       }
 
     default:
