@@ -59,7 +59,7 @@ const mapDispatchToProps = (dispatch) => {
     storeNomination: (nomination) => {
       dispatch({
         type: 'STORE_NOMINATION',
-        nomination: nomination
+        nominations: nomination
       })
     }
   }

@@ -4,22 +4,14 @@ import { connect } from 'react-redux';
 class Nominations extends Component {
 
   renderNominations = () => {
-    debugger
     console.log(this.props.nominations);
-    // if (this.props.nominations.length) {
-    //   return (
-    //     <ul>
-    //       {this.props.nominations.map(nomination => {
-    //           return (
-    //             <li>
-    //               {nomination.Title} ({nomination.Year})
-    //             </li>
-    //           )
-    //         })
-    //       }
-    //     </ul>
-    //   )
-    // }
+    return (
+      <ul>
+        <li>
+          {this.props.nominations.Title} ({this.props.nominations.Year})
+        </li>
+      </ul>
+    )
   }
 
   render() {
