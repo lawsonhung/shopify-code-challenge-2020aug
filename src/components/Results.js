@@ -31,6 +31,7 @@ class Results extends Component {
   handleNominateClick = (e, show) => {
     console.log(e.target);
     console.log(show);
+    this.props.storeNomination(show);
   }
 
   render() {
@@ -53,4 +54,15 @@ const mapStateToProps = (store) => {
   }
 }
 
-export default connect(mapStateToProps, null)(Results)
+const mapDispatchToProps = (dispatch) => {
+  return {
+    storeNomination: (nomination) => {
+      dispatch({
+        type: 'STORE_NOMINATION',
+        nomination: nomination
+      })
+    }
+  }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(Results)
