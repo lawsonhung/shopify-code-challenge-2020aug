@@ -2,7 +2,7 @@ export default (state={
   title: '',
   resultCt: 0,
   searchResults: null,
-  nominations: []
+  nominations: null
 }, action) => {
   switch(action.type) {
     case 'STORE_TITLE':
@@ -38,11 +38,12 @@ export default (state={
       }
 
     case 'STORE_NOMINATION':
+      console.log(action.nominations)
       return {
         title: state.title,
         resultCt: state.resultCt,
         searchResults: state.searchResults,
-        nominations: state.nominations.push('New Nomination')
+        nominations: action.nominations
       }
 
     default:
