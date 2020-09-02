@@ -1,15 +1,40 @@
 export default (state={
-  title: ''
+  title: '',
+  resultCt: 0,
+  searchResults: null,
+  nominations: []
 }, action) => {
   switch(action.type) {
     case 'STORE_TITLE':
       return {
-        title: action.title
+        title: action.title,
+        resultCt: state.resultCt,
+        searchResults: state.searchResults,
+        nominations: state.nominations
       }
 
-    case 'CLEAR_TITLE':
+    case 'STORE_NUM_RESULTS':
       return {
-        title: ''
+        title: state.title,
+        resultCt: action.resultCt,
+        searchResults: state.searchResults,
+        nominations: state.nominations
+      }
+
+    case 'RESET_NUM_RESULTS':
+      return {
+        title: state.title,
+        resultCt: 0,
+        searchResults: state.searchResults,
+        nominations: state.nominations
+      }
+
+    case 'STORE_SEARCH_RESULTS':
+      return {
+        title: state.title,
+        resultCt: state.resultCt,
+        searchResults: action.searchResults,
+        nominations: state.nominations
       }
 
     default:

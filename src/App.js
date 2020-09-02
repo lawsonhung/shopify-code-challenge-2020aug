@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
-import { connect } from 'react-redux';
-import SearchBar from './SearchBar';
+import SearchBar from './components/SearchBar';
+import Results from './components/Results';
+import Nominations from './components/Nominations';
 
 class App extends Component {
 
@@ -8,28 +9,12 @@ class App extends Component {
     return (
       <div>
         <h1>The Shoppies</h1>
-        <h2>Hey, {this.props.title}!</h2>
-          <SearchBar />
+        <SearchBar />
+        <Results />
+        <Nominations />
       </div>
     )
   }
 }
 
-const mapStateToProps = (store) => {
-  return {
-    title: store.title
-  }
-}
-
-const mapDispatchToProps = (dispatch) => {
-  return {
-    storetitle: (title) => {
-      dispatch({
-        type: 'STORE_TITLE',
-        title: title
-      })
-    }
-  }
-}
-
-export default connect(mapStateToProps, mapDispatchToProps)(App);
+export default App;
