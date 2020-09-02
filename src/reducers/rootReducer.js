@@ -37,6 +37,14 @@ export default (state={
         nominations: state.nominations
       }
 
+    case 'STORE_NOMINATION':
+      return {
+        title: state.title,
+        resultCt: state.resultCt,
+        searchResults: state.searchResults,
+        nominations: state.nominations.push('New Nomination')
+      }
+
     default:
       return state;
   }
