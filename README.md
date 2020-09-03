@@ -3,6 +3,14 @@
 
 Shopify Code Challenge
 
+Dependencies:
+Redux
+### `npm i redux`
+React-Redux
+### `npm i react-redux`
+Redux-Persist
+### `npm i redux-persist`
+
 To view the site, run:
 
 ### `npm start`
