@@ -24,6 +24,7 @@ class Results extends Component {
                 id={`show ${show.imdbID} button`}>
                   Nominate
               </button>
+              {this.disableNominateButton()}
             </li>
           )
           })
@@ -41,9 +42,10 @@ class Results extends Component {
   disableNominateButton = () => {
     this.props.nominations.map(nomination => {
         console.log(nomination.imdbID);
+        // debugger
         console.log(document.getElementById(`show tt0099785 button`));
         console.log(document.getElementById(`show ${nomination.imdbID} button`));
-        // document.getElementById(`show ${showID} button`).disable = true;
+        // document.getElementById(`show ${nomination.imdbID} button`).disable = true;
       return null;
     })
   }
@@ -54,7 +56,6 @@ class Results extends Component {
         <h2>Results for "{this.props.title}"</h2>
         <p>There are {this.props.resultCt} result(s) for this search.</p>
         {this.renderResults()}
-        {this.disableNominateButton()}
       </div>
     )
   }
