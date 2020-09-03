@@ -32,7 +32,6 @@ export default (state={
     case 'STORE_NOMINATION':
       return {
         ...state,
-        // nominations: []
         nominations: [...state.nominations, action.nominations]
       }
 

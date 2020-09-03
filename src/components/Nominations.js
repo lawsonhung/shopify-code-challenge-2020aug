@@ -4,7 +4,6 @@ import { connect } from 'react-redux';
 class Nominations extends Component {
 
   renderNominations = () => {
-    console.log(this.props.nominations);
     return (
       <ul>
         {this.props.nominations.map((nomination, nominationIndex) => {
@@ -12,7 +11,7 @@ class Nominations extends Component {
             <li key={nomination.imdbID}
             id={`nomination ${nomination.imdbID}`}>
               {nomination.Title} ({nomination.Year})
-              <button onClick={() => this.removeNomination(nominationIndex)}>Remove</button>
+              <button onClick={() => this.removeNomination(nominationIndex, nomination.imdbID)}>Remove</button>
             </li>
           )
         })}
@@ -20,11 +19,10 @@ class Nominations extends Component {
     )
   }
 
-  removeNomination = (nominationIndex) => {
-    console.log(`We have to remove ${nominationIndex}`);
+  removeNomination = (nominationIndex, showID) => {
+    const button = document.getElementById(`show ${showID} button`)
     this.props.removeNomination(nominationIndex);
-    console.log(this.props.nominations);
-
+    if (button) button.disabled = false;
   }
 
   render() {
@@ -49,7 +47,7 @@ const mapDispatchToProps = (dispatch) => {
     removeNomination: (nominationIndex) => {
       dispatch({
         type: 'REMOVE_NOMINATION',
-        nominations: nominationIndex
+        nominationIndex: nominationIndex
       })
     }
   }
