@@ -3,6 +3,21 @@ import { connect } from 'react-redux';
 
 class Nominations extends Component {
 
+  renderNumNominations = () => {
+    if (this.props.nominations.length === 0)
+      return (
+        <p>You have no nominations yet! Nominate a show!</p>
+      )
+    else if (this.props.nominations.length < 5)
+      return (
+        <p>You have nominated {this.props.nominations.length} show(s).</p>
+      )
+    else
+      return (
+        <p>You've nominated 5 or more shows! Good job!</p>
+      )
+  }
+
   renderNominations = () => {
     return (
       <ul>
@@ -29,6 +44,7 @@ class Nominations extends Component {
     return (
       <div>
         <h2>Nominations</h2>
+        {this.renderNumNominations()}
         {this.renderNominations()}
       </div>
     )
