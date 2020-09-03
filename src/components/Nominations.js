@@ -7,15 +7,24 @@ class Nominations extends Component {
     console.log(this.props.nominations);
     return (
       <ul>
-        {this.props.nominations.map(nomination => {
+        {this.props.nominations.map((nomination, nominationIndex) => {
           return (
-            <li>
+            <li key={nomination.imdbID}
+            id={`nomination ${nomination.imdbID}`}>
               {nomination.Title} ({nomination.Year})
+              <button onClick={() => this.removeNomination(nominationIndex)}>Remove</button>
             </li>
           )
         })}
       </ul>
     )
+  }
+
+  removeNomination = (nominationIndex) => {
+    console.log(`We have to remove ${nominationIndex}`);
+    this.props.removeNomination(nominationIndex);
+    console.log(this.props.nominations);
+
   }
 
   render() {
@@ -35,4 +44,15 @@ const mapStateToProps = (store) => {
   }
 }
 
-export default connect(mapStateToProps, null)(Nominations)
+const mapDispatchToProps = (dispatch) => {
+  return {
+    removeNomination: (nominationIndex) => {
+      dispatch({
+        type: 'REMOVE_NOMINATION',
+        nominations: nominationIndex
+      })
+    }
+  }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(Nominations)

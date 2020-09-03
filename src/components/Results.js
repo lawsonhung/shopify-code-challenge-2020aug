@@ -24,7 +24,6 @@ class Results extends Component {
                 id={`show ${show.imdbID} button`}>
                   Nominate
               </button>
-              {this.disableNominateButton()}
             </li>
           )
           })
@@ -34,18 +33,22 @@ class Results extends Component {
   }
 
   handleNominateClick = (e, show) => {
-    console.log(e.target)
     e.target.disabled = true;
     this.props.storeNomination(show);
   }
 
+  componentDidMount = () => {
+    this.disableNominateButton();
+  }
+
+  componentDidUpdate = () => {
+    this.disableNominateButton();
+  }
+
   disableNominateButton = () => {
     this.props.nominations.map(nomination => {
-        console.log(nomination.imdbID);
-        // debugger
-        console.log(document.getElementById(`show tt0099785 button`));
-        console.log(document.getElementById(`show ${nomination.imdbID} button`));
-        // document.getElementById(`show ${nomination.imdbID} button`).disable = true;
+      const button = document.getElementById(`show ${nomination.imdbID} button`);
+      if (button) button.disabled = true;
       return null;
     })
   }

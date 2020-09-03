@@ -30,15 +30,20 @@ export default (state={
       }
 
     case 'STORE_NOMINATION':
-      console.log("state.nominations: ", state.nominations);
-      console.log(action.nominations);
-      
       return {
         ...state,
         // nominations: []
         nominations: [...state.nominations, action.nominations]
-        
       }
+
+      case 'REMOVE_NOMINATION':
+        return {
+          ...state,
+          nominations: [
+            ...state.nominations.slice(0, action.nominationIndex),
+            ...state.nominations.slice(action.nominationIndex + 1)
+          ]
+        }
 
     default:
       return state;
