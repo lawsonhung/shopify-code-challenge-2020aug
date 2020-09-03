@@ -4,6 +4,7 @@
 Shopify Code Challenge
 
 Dependencies:
+
 Redux
 ### `npm i redux`
 React-Redux
