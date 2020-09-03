@@ -19,7 +19,11 @@ class Results extends Component {
           return (
             <li key={show.imdbID}>
               {show.Title} ({show.Year}) 
-              <button onClick={(e) => this.handleNominateClick(e, show)}>Nominate</button>
+              <button 
+                onClick={(e) => this.handleNominateClick(e, show)}
+                id={`show ${show.imdbID} button`}>
+                  Nominate
+              </button>
             </li>
           )
           })
@@ -29,9 +33,19 @@ class Results extends Component {
   }
 
   handleNominateClick = (e, show) => {
-    // console.log(e.target);
-    // console.log(show);
+    console.log(e.target)
+    e.target.disabled = true;
     this.props.storeNomination(show);
+  }
+
+  disableNominateButton = () => {
+    this.props.nominations.map(nomination => {
+        console.log(nomination.imdbID);
+        console.log(document.getElementById(`show tt0099785 button`));
+        console.log(document.getElementById(`show ${nomination.imdbID} button`));
+        // document.getElementById(`show ${showID} button`).disable = true;
+      return null;
+    })
   }
 
   render() {
@@ -40,6 +54,7 @@ class Results extends Component {
         <h2>Results for "{this.props.title}"</h2>
         <p>There are {this.props.resultCt} result(s) for this search.</p>
         {this.renderResults()}
+        {this.disableNominateButton()}
       </div>
     )
   }
@@ -50,7 +65,8 @@ const mapStateToProps = (store) => {
   return {
     title: store.title,
     resultCt: store.resultCt,
-    searchResults: store.searchResults
+    searchResults: store.searchResults,
+    nominations: store.nominations
   }
 }
 
