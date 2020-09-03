@@ -39,10 +39,12 @@ export default (state={
       case 'REMOVE_NOMINATION':
         return {
           ...state,
+          // nominations: []
           nominations: [
             ...state.nominations.slice(0, action.nominationIndex),
             ...state.nominations.slice(action.nominationIndex + 1)
           ]
+          // nominations: state.nominations.filter((nomination, i) => i !== action.nominationIndex)
         }
 
     default:

@@ -49,7 +49,7 @@ const mapDispatchToProps = (dispatch) => {
     removeNomination: (nominationIndex) => {
       dispatch({
         type: 'REMOVE_NOMINATION',
-        nominations: nominationIndex
+        nominationIndex: nominationIndex
       })
     }
   }
