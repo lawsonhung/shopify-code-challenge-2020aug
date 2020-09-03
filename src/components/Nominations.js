@@ -7,9 +7,13 @@ class Nominations extends Component {
     console.log(this.props.nominations);
     return (
       <ul>
-        <li>
-          {this.props.nominations.Title} ({this.props.nominations.Year})
-        </li>
+        {this.props.nominations.map(nomination => {
+          return (
+            <li>
+              {nomination.Title} ({nomination.Year})
+            </li>
+          )
+        })}
       </ul>
     )
   }

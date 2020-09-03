@@ -29,8 +29,8 @@ class Results extends Component {
   }
 
   handleNominateClick = (e, show) => {
-    console.log(e.target);
-    console.log(show);
+    // console.log(e.target);
+    // console.log(show);
     this.props.storeNomination(show);
   }
 
