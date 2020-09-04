@@ -24,6 +24,7 @@ class SearchBar extends Component {
     else if (this.props.searchResults.Error === 'Movie not found!')
       this.props.resetNumResults();
     else
+      // Handle other search result errors.
       return null
   }
 
