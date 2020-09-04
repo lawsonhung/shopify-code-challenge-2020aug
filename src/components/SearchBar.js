@@ -9,7 +9,7 @@ class SearchBar extends Component {
   }
 
   fetchMovies = (searchQuery) => {
-    fetch(`http://www.omdbapi.com/?apikey=a9602605&s=${searchQuery}`)
+    fetch(`http://www.omdbapi.com/?apikey=a9602605&type=movie&s=${searchQuery}`)
       .then(res => res.json())
       .then(searchResults => this.renderSearchResults(searchResults))
   }
