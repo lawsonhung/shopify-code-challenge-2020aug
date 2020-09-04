@@ -11,6 +11,10 @@ React-Redux
 ### `npm i react-redux`
 Redux-Persist
 ### `npm i redux-persist`
+React-Router-Dom
+### `npm install --save react-router-dom`
+
+#
 
 To view the site, run:
 
