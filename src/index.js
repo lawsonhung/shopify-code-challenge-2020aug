@@ -8,6 +8,7 @@ import { Provider } from 'react-redux';
 import rootReducer from './reducers/rootReducer';
 import { PersistGate } from 'redux-persist/integration/react';
 import { persistStore, persistReducer } from 'redux-persist';
+import { BrowserRouter } from 'react-router-dom';
 
 
 const persistConfig = {
@@ -16,13 +17,15 @@ const persistConfig = {
 }
 
 const persistedReducer = persistReducer(persistConfig, rootReducer);
-let lawsonsStore = createStore(persistedReducer);
-let persistor = persistStore(lawsonsStore);
+const lawsonsStore = createStore(persistedReducer);
+const persistor = persistStore(lawsonsStore);
 
 ReactDOM.render(
   <Provider store={lawsonsStore}>
     <PersistGate loading={null} persistor={persistor}>
-      <App />
+      <BrowserRouter>
+        <App />
+      </BrowserRouter>
     </PersistGate>
   </Provider>,
   document.getElementById('root')

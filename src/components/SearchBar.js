@@ -9,12 +9,9 @@ class SearchBar extends Component {
   }
 
   fetchMovies = (searchQuery) => {
-    console.log(searchQuery);
     fetch(`http://www.omdbapi.com/?apikey=a9602605&s=${searchQuery}`)
       .then(res => res.json())
-      .then(searchResults => {
-        this.renderSearchResults(searchResults);
-      })
+      .then(searchResults => this.renderSearchResults(searchResults))
   }
 
   renderSearchResults = (searchResults) => {
@@ -27,7 +24,7 @@ class SearchBar extends Component {
     else if (this.props.searchResults.Error === 'Movie not found!')
       this.props.resetNumResults();
     else
-      console.log(this.props.searchResults.Error);
+      return null
   }
 
   render() {
