@@ -42,14 +42,6 @@ class Results extends Component {
     this.props.storeNomination(show);
   }
 
-  componentDidMount = () => {
-    this.disableNominateButton();
-  }
-
-  componentDidUpdate = () => {
-    this.disableNominateButton();
-  }
-
   disableNominateButton = () => {
     this.props.nominations.map(nomination => {
       const button = document.getElementById(`show ${nomination.imdbID} button`);
@@ -64,6 +56,7 @@ class Results extends Component {
         <h2>Results for "{this.props.title}"</h2>
         <p>There are {this.props.resultCt} result(s) for this search.</p>
         {this.renderResults()}
+        {this.disableNominateButton()}
       </div>
     )
   }
