@@ -3,6 +3,8 @@
 
 Shopify Code Challenge
 
+Link to website: https://lawsonhung-shopify-2020aug.surge.sh/
+
 Dependencies:
 
 Redux
