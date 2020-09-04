@@ -5,7 +5,11 @@ import './Results.css';
 class Results extends Component {
 
   renderResults = () => {
-    if (this.props.searchResults.Response === 'False'){
+    if (this.props.searchResults === null)
+      return (
+        <p>No search results.</p>
+      )
+    else if (this.props.searchResults.Response === 'False'){
       return (
         <p>{this.props.searchResults.Error}</p>
       )
