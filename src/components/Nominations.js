@@ -16,7 +16,6 @@ class Nominations extends Component {
       return (
         <div>
           <p>You've nominated 5 or more shows! Good job!</p>
-          {/* Uncomment this line to manually go back to the HomePage by typing in http://localhost:3000/ . */}
           {this.maxNominations()}
         </div>
       )
@@ -46,6 +45,7 @@ class Nominations extends Component {
 
   maxNominations = () => {
     alert('You\'ve chosen all 5 nominations! Good job! You can choose more or submit your choices.')
+    // Attempted to create a new page for max nominations.
     // this.props.routerProps.history.push('/maxNominations')
   }
 
