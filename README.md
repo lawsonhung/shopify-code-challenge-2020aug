@@ -12,7 +12,7 @@ React-Redux
 Redux-Persist
 ### `npm i redux-persist`
 React-Router-Dom
-### `npm install --save react-router-dom`
+### `npm i --save react-router-dom`
 
 #
 
