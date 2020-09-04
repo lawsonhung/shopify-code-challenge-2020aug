@@ -9,11 +9,13 @@ class App extends Component {
     return (
       <Switch>
 
-        <Route path={'/maxNominations'} component={MaxNominations} />
+        <Route path={'/maxNominations'} 
+          render={(routerProps) => <MaxNominations 
+            routerProps={routerProps} />} />
 
         <Route path={'/'} 
           render={(routerProps) => <HomePage
-          routerProps={routerProps} />}/>
+            routerProps={routerProps} />}/>
 
       </Switch>
       

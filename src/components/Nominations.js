@@ -17,7 +17,7 @@ class Nominations extends Component {
         <div>
           <p>You've nominated 5 or more shows! Good job!</p>
           {/* Uncomment this line to manually go back to the HomePage by typing in http://localhost:3000/ . */}
-          {/* {this.props.routerProps.history.push('/maxNominations')} */}
+          {this.maxNominations()}
         </div>
       )
   }
@@ -42,6 +42,11 @@ class Nominations extends Component {
     const button = document.getElementById(`show ${showID} button`)
     this.props.removeNomination(nominationIndex);
     if (button) button.disabled = false;
+  }
+
+  maxNominations = () => {
+    alert('You\'ve chosen all 5 nominations! Good job! You can choose more or submit your choices.')
+    // this.props.routerProps.history.push('/maxNominations')
   }
 
   render() {
