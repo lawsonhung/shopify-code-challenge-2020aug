@@ -1,7 +1,7 @@
 export default (state={
   title: '',
   resultCt: 0,
-  searchResults: null,
+  searchResults: {},
   nominations: []
 }, action) => {
   switch(action.type) {
