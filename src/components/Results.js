@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import './Results.css';
 
 class Results extends Component {
 
@@ -55,7 +56,7 @@ class Results extends Component {
 
   render() {
     return (
-      <div>
+      <div className='results'>
         <h2>Results for "{this.props.title}"</h2>
         <p>There are {this.props.resultCt} result(s) for this search.</p>
         {this.renderResults()}
