@@ -14,7 +14,11 @@ class Nominations extends Component {
       )
     else
       return (
-        <p>You've nominated 5 or more shows! Good job!</p>
+        <div>
+          <p>You've nominated 5 or more shows! Good job!</p>
+          {/* Uncomment this line to manually go back to the HomePage by typing in http://localhost:3000/ . */}
+          {/* {this.props.routerProps.history.push('/maxNominations')} */}
+        </div>
       )
   }
 
