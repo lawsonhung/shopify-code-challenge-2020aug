@@ -5,7 +5,7 @@ Shopify Code Challenge
 
 Link to website: https://lawsonhung-shopify-2020aug.surge.sh/
 
-!(Award gif)[https://media.giphy.com/media/xUPGchOGCoa1S5QCGc/giphy.gif]
+![Award gif](https://media.giphy.com/media/xUPGchOGCoa1S5QCGc/giphy.gif)
 
 Dependencies:
 
