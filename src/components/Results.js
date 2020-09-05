@@ -18,23 +18,30 @@ class Results extends Component {
   }
 
   renderSearchResults = () => {
-    return (
-      <ul>
-        {this.props.searchResults.Search.map(show => {
-          return (
-            <li key={show.imdbID}>
-              {show.Title} ({show.Year}) 
-              <button 
-                onClick={(e) => this.handleNominateClick(e, show)}
-                id={`show ${show.imdbID} button`}>
-                  Nominate
-              </button>
-            </li>
-          )
-          })
-        }
-      </ul>
-    )
+    if (this.props.searchResults.Search){
+      return (
+        <ul>
+          {this.props.searchResults.Search.map(show => {
+            return (
+              <li key={show.imdbID}>
+                {show.Title} ({show.Year}) 
+                <button 
+                  onClick={(e) => this.handleNominateClick(e, show)}
+                  id={`show ${show.imdbID} button`}>
+                    Nominate
+                </button>
+              </li>
+            )
+            })
+          }
+        </ul>
+      )
+    }
+    else {
+      return (
+        <p>No search results yet.</p>
+      )
+    }
   }
 
   handleNominateClick = (e, show) => {
